@@ -4,11 +4,7 @@ import React, { FC } from 'react';
 import '../css/tailwind.css';
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
-  return (
-    <div className="min-h-screen bg-gray-400">
-      <Component {...pageProps} />
-    </div>
-  );
+  return <Component {...pageProps} />;
 };
 
 export default MyApp;
