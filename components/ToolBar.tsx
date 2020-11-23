@@ -3,7 +3,7 @@ import { GridView, ListView, ArrowDown } from './icons/';
 
 const Toolbar: React.FC = () => {
   return (
-    <div className="h-8 z-50 px-6 w-full flex items-center justify-between bg-white shadow-md">
+    <div className="h-8 px-6 w-full flex items-center justify-between bg-white shadow-md">
       <div className="h-full w-1/3 flex items-center justify-start">
         <button>
           <GridView className="fill-current text-secondary" />
