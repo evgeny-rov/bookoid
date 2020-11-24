@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 import { ArrowDown, Remove } from './icons';
 
-const BookCard: React.FC = () => {
+interface Props {
+  title: string;
+  author: string;
+  cover: string;
+}
+
+const BookCard: React.FC<Props> = ({ title, author, cover }) => {
   const [showSelectStatus, setShowSelectStatus] = useState(false);
 
-  const renderPopup = () => {
+  const renderStatusSelection = () => {
     return (
       <div className="absolute right-0 w-4/6 h-full pt-8 pr-3 flex flex-col items-end bg-gradient-to-l from-white z-10">
         <button className="text-accent font-semibold text-sm">Read</button>
@@ -21,33 +27,31 @@ const BookCard: React.FC = () => {
         <div className="absolute h-full w-full top-0 bg-gradient-to-l from-primary-light"></div>
         <img
           className="h-full w-full object-cover object-center"
-          src="/static/cover-placeholder.jpg"
+          src={cover}
           alt="placeholder img"
         />
       </div>
-      <div className="w-4/6 h-full px-3 grid">
-        {showSelectStatus && renderPopup()}
+      <div className="w-4/6 h-full px-2 grid">
+        {showSelectStatus && renderStatusSelection()}
         <div className="flex items-center justify-between">
           <span className="text-accent font-semibold capitalize">
-            Lent to Joe
+            Lent to joe
           </span>
           <button
             onClick={() => setShowSelectStatus(!showSelectStatus)}
-            className="absolute right-0 p-2 pr-3 z-20"
+            className="p-2 z-20"
           >
             <ArrowDown className="fill-current text-accent" />
           </button>
         </div>
         <div className="flex items-center justify-between">
           <span className="font-semibold text-secondary pr-6 leading-5">
-            Harry Potter and Philosopher's stone.
+            {title}
           </span>
         </div>
         <div className="flex items-center justify-between">
-          <span className="font-semibold text-secondary text-sm">
-            J. K. Rowling
-          </span>
-          <button className="absolute right-0 p-2 pr-3">
+          <span className="font-semibold text-secondary text-sm">{author}</span>
+          <button className="p-2">
             <Remove className="stroke-current text-secondary" />
           </button>
         </div>

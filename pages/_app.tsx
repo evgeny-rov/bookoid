@@ -4,7 +4,7 @@ import React, { FC } from 'react';
 import '../css/tailwind.css';
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
-  return <Component className="w-40" {...pageProps} />;
+  return <Component {...pageProps} />;
 };
 
 export default MyApp;
